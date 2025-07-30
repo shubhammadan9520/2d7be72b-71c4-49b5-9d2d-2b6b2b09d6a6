@@ -1,0 +1,15 @@
+{
+  "name": "2d7be72b-71c4-49b5-9d2d-2b6b2b09d6a6",
+  "version": "1.0.0",
+  "description": "AMPD Energy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
