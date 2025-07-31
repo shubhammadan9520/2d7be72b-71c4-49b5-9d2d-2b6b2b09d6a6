@@ -2,14 +2,20 @@
   "name": "2d7be72b-71c4-49b5-9d2d-2b6b2b09d6a6",
   "version": "1.0.0",
   "description": "AMPD Energy",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "chart.js": "^4.5.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.6.0",
+    "papaparse": "^5.5.3"
   }
 }

@@ -1,0 +1,273 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.dashboard-header {
+  background-color: #e6f9f6;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.2em;
+  color: #00b3a4;
+  position: relative;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #999;
+}
+
+.download-link {
+  color: #00b3a4;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.savings-section {
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.savings-block {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.savings-block h3 {
+  margin: 0 0 10px;
+  font-size: 1.1em;
+  color: #333;
+  text-align: left;
+}
+
+.savings-block p {
+  margin: 0 0 10px;
+  font-size: 0.9em;
+  color: #666;
+  text-align: left;
+}
+
+.compact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-top: 10px;
+}
+
+.savings-metric {
+  text-align: center;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.savings-metric:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.savings-metric .label {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.savings-metric .carbon-value {
+  font-size: 1.5em;
+  margin-bottom: 2px;
+  color: #00b3a4;
+}
+
+.savings-metric .carbon-unit {
+  font-size: 0.9em;
+  color: #00b3a4;
+}
+
+.savings-metric .diesel-value {
+  font-size: 1.5em;
+  margin-bottom: 2px;
+  color: #3c0de4;
+}
+
+.savings-metric .diesel-unit {
+  font-size: 0.9em;
+  color: #3c0de4;
+}
+
+.info-icon {
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.date-range {
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.date-range input {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 180px;
+}
+
+.date-separator {
+  margin: 0 10px;
+  color: #666;
+  font-weight: bold;
+}
+
+.preset-buttons button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.load-btn {
+  padding: 5px 15px;
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.load-btn:hover {
+  background-color: #40a9ff;
+}
+
+.chart-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e6fff3;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.summary-item {
+  text-align: center;
+  flex: 1;
+  padding: 10px;
+}
+
+.summary-item span {
+  display: block;
+}
+
+.summary-item span:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.summary-item span:nth-child(2) {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.summary-item span:last-child {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+}
+
+#chart-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#chart {
+  width: 100%;
+  height: 400px;
+}
+
+.summary-highlight {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.highlight-block {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.highlight-block.carbon {
+  color: #00b3a4;
+}
+
+.highlight-block.diesel {
+  color: #460bf5;
+}
+
+.highlight-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.highlight-subtitle {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.highlight-value {
+  font-size: 1.5em;
+}
+
+.device-selection {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.device-selection label {
+  margin-right: 10px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.device-selection select {
+  padding: 5px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

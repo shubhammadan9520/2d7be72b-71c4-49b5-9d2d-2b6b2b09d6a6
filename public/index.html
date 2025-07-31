@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Device Savings Dashboard</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="dashboard-container">
+      <div class="dashboard-header">
+        Estimated carbon savings and diesel savings
+        <span class="close-btn">&times;</span>
+      </div>
+      <div class="download-link">
+        Download general guidelines on the estimated carbon & diesel savings
+        calculations
+      </div>
+
+      <div class="savings-section">
+        <div class="savings-block">
+          <h3>Estimated carbon savings</h3>
+          <p>1 Tonne = 1,000 kg</p>
+          <div class="savings-value compact-layout">
+            <div class="savings-metric">
+              <div class="label">Total <span class="info-icon">ⓘ</span></div>
+              <div class="carbon-value">
+                {{ totals.totalCarbon.toFixed(1) }}
+              </div>
+              <div class="carbon-unit">Tonnes</div>
+            </div>
+            <div class="savings-metric">
+              <div class="label">Monthly <span class="info-icon">ⓘ</span></div>
+              <div class="carbon-value">
+                {{ totals.monthlyCarbon.toFixed(1) }}
+              </div>
+              <div class="carbon-unit">Tonnes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="savings-block">
+          <h3>Estimated diesel savings</h3>
+          <div class="savings-value compact-layout">
+            <div class="savings-metric">
+              <div class="label">Total <span class="info-icon">ⓘ</span></div>
+              <div class="diesel-value">{{ totals.totalFuel.toFixed(1) }}</div>
+              <div class="diesel-unit">Litres</div>
+            </div>
+            <div class="savings-metric">
+              <div class="label">Monthly <span class="info-icon">ⓘ</span></div>
+              <div class="diesel-value">
+                {{ totals.monthlyFuel.toFixed(1) }}
+              </div>
+              <div class="diesel-unit">Litres</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="device-selection">
+        <label for="deviceSelect">Select Device:</label>
+        <select id="deviceSelect" v-model="selectedDevice" @change="fetchData">
+          <option v-for="device in devices" :key="device.id" :value="device.id">
+            {{ device.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="date-range">
+        <input
+          type="datetime-local"
+          v-model="startDateTime"
+          @change="fetchData"
+        />
+        <span class="date-separator">--</span>
+        <input
+          type="datetime-local"
+          v-model="endDateTime"
+          @change="fetchData"
+        />
+        <button @click="fetchData" class="load-btn">Load Data</button>
+      </div>
+
+      <div class="preset-buttons">
+        <button @click="setDateRange('last30')">Last 30 days</button>
+        <button @click="setDateRange('last60')">Last 60 days</button>
+        <button @click="setDateRange('lastYear')">Last year</button>
+      </div>
+
+      <div class="summary-highlight">
+        <div class="highlight-block carbon">
+          <div class="highlight-title">Estimated carbon savings</div>
+          <div class="highlight-subtitle">
+            Sum of selected date range <span class="info-icon">ⓘ</span>
+          </div>
+          <div class="highlight-value">{{ totals.totalCarbon.toFixed(1) }}</div>
+          <div class="highlight-value">Tonnes</div>
+        </div>
+        <div class="highlight-block diesel">
+          <div class="highlight-title">Estimated diesel savings</div>
+          <div class="highlight-subtitle">
+            Sum of selected date range <span class="info-icon">ⓘ</span>
+          </div>
+          <div class="highlight-value">
+            {{ (totals.totalFuel / 1000).toFixed(1) }} k
+          </div>
+          <div class="highlight-value">Litres</div>
+        </div>
+      </div>
+
+      <div id="chart-container">
+        <div id="chart" style="width: 100%; height: 400px"></div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
